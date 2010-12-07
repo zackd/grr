@@ -12,10 +12,11 @@ hibernate {
 // environment specific settings
 environments {
 	development {
-		/*dataSource {
+		dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			url = "jdbc:hsqldb:mem:devDB"
-		}*/
+		}
+		/*
 		dataSource {
 			//pooled = true
 		    dbCreate = "update"
@@ -25,7 +26,7 @@ environments {
 			//logSql = true
 		    username = "root"
 		    password = "nsecure"
-		}
+		}*/
 		
 	}
 	test {
