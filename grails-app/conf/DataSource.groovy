@@ -5,9 +5,9 @@ dataSource {
 	password = ""
 }
 hibernate {
-    cache.use_second_level_cache=true
-    cache.use_query_cache=true
-    cache.provider_class='net.sf.ehcache.hibernate.EhCacheProvider'
+	cache.use_second_level_cache=true
+	cache.use_query_cache=true
+	cache.provider_class='net.sf.ehcache.hibernate.EhCacheProvider'
 }
 // environment specific settings
 environments {
@@ -16,6 +16,13 @@ environments {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			url = "jdbc:hsqldb:mem:devDB"
 		}
+		/*dataSource {
+			dbCreate = "create-drop"
+			driverClassName = "com.mysql.jdbc.Driver"
+			url = "jdbc:mysql://localhost/grr"
+			username = "root"
+			password = "nsecure"
+		}*/
 	}
 	test {
 		dataSource {

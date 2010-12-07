@@ -1,0 +1,11 @@
+.classpath
+project
+bin
+prodDb*
+stacktrace.log
+target
+test/reports/
+test/reports-functional/
+tmp/
+web-app/plugins/
+web-app/WEB-INF/classes/
