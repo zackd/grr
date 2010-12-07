@@ -17,11 +17,12 @@ environments {
 			url = "jdbc:hsqldb:mem:devDB"
 		}*/
 		dataSource {
-			pooled = true
+			//pooled = true
 		    dbCreate = "update"
-		    url = "jdbc:mysql://localhost/grr"
+		    url = "jdbc:mysql://localhost/grr?useUnicode=true&characterEncoding=utf-8"
 		    driverClassName = "com.mysql.jdbc.Driver"
-		    dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+		    //dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			//logSql = true
 		    username = "root"
 		    password = "nsecure"
 		}

@@ -1,2 +1,6 @@
 h2. grails101
 
+* grails 1.2.3
+
+
+
