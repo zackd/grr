@@ -12,17 +12,20 @@ hibernate {
 // environment specific settings
 environments {
 	development {
-		dataSource {
+		/*dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			url = "jdbc:hsqldb:mem:devDB"
-		}
-		/*dataSource {
-			dbCreate = "create-drop"
-			driverClassName = "com.mysql.jdbc.Driver"
-			url = "jdbc:mysql://localhost/grr"
-			username = "root"
-			password = "nsecure"
 		}*/
+		dataSource {
+			pooled = true
+		    dbCreate = "update"
+		    url = "jdbc:mysql://localhost/grr"
+		    driverClassName = "com.mysql.jdbc.Driver"
+		    dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+		    username = "root"
+		    password = "nsecure"
+		}
+		
 	}
 	test {
 		dataSource {
