@@ -1,15 +1,16 @@
 package org.example
 
 class Registration {	
+	Boolean paid 
+	Date dateCreated
+	Date lastUpdated
+	
+	static belongsTo = [race:Race, runner:Runner]
+	
 	static constraints = {
 		race() 
 		runner() 
 		paid() 
 		dateCreated()
 	}
-	static belongsTo = [race:Race, runner:Runner]
-	
-	Boolean paid 
-	Date dateCreated
-	Date lastUpdated
 }

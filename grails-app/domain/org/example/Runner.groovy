@@ -1,6 +1,18 @@
 package org.example
 
-class Runner { 
+class Runner {	
+	String firstName 
+	String lastName 
+	Date dateOfBirth 
+	String gender 
+	String address 
+	String city 
+	String state 
+	String zipcode 
+	String email
+	
+	static hasMany = [registrations:Registration]
+	
 	static constraints = {
 		firstName(blank:false) 
 		lastName(blank:false) 
@@ -12,17 +24,6 @@ class Runner {
 		zipcode() 
 		email(email:true)
 	}
-	static hasMany = [registrations:Registration]
-	
-	String firstName 
-	String lastName 
-	Date dateOfBirth 
-	String gender 
-	String address 
-	String city 
-	String state 
-	String zipcode 
-	String email
 	
 	String toString(){
 		return "${lastName}, ${firstName} (${email})"

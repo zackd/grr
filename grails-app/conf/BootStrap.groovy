@@ -24,7 +24,7 @@ class BootStrap {
 					[firstName:"Matt", lastName:"Hendriksen", age: 8, gender:"M", address:"1 West St", city:"Goose", state:"NC", zipcode:"35475", email:"matt@whereever.com"],
 					[firstName:"John", lastName:"Doe", age: 40, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"john@whereever.com"]
 				]
-				runners.each{ runner -> 
+				runners.each { runner -> 
 					runner = new Runner(
 								firstName: runner.firstName,
 								lastName: runner.lastName, 

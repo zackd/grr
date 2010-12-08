@@ -1,6 +1,19 @@
 package org.example
 
 class Race {
+	String name
+	Date startDate 
+	String city 
+	String state 
+	BigDecimal distance 
+	BigDecimal inMiles() { 
+		return distance * 0.6214
+	}
+	BigDecimal cost 
+	Integer maxRunners = 100000
+	
+	static hasMany = [registrations:Registration]
+	
 	static constraints = {
 		name(blank:false, maxSize:50) 
 		startDate(validator: {return (it > new Date())})
@@ -13,19 +26,7 @@ class Race {
 	static mapping = { 
 		sort "startDate"
 	}
-	static hasMany = [registrations:Registration]
 	
-	String name
-	Date startDate 
-	String city 
-	String state 
-	BigDecimal distance 
-	BigDecimal inMiles() { 
-		return distance * 0.6214
-	}
-	BigDecimal cost 
-	Integer maxRunners = 100000
-		
 	String toString(){ 
 		return "${name}, ${startDate.format('MM/dd/yyyy')}"
 	}
