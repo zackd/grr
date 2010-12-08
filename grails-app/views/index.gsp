@@ -95,7 +95,12 @@
 				<h2>Available Controllers:</h2>
 	            <ul>
 	              <g:each var="c" in="${grailsApplication.controllerClasses}">
-	                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+	                    <li class="controller">
+							<g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
+							<ul>
+								<li><g:link controller="${c.logicalPropertyName}" action="create">create</g:link></li>
+							</ul>
+						</li>
 	              </g:each>
 	            </ul>
 	        </div>
