@@ -1,4 +1,4 @@
-//import org.example.Race
+import org.example.Race
 
 class RaceIntegrationTests extends GroovyTestCase {
 	void testRaceDatesBeforeToday() { 
