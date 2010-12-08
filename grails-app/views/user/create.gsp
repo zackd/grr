@@ -1,6 +1,6 @@
 
-
 <%@ page import="org.example.User" %>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

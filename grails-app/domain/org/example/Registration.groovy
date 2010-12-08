@@ -13,4 +13,8 @@ class Registration {
 		paid() 
 		dateCreated()
 	}
+	
+	String toString(){
+		return "${runner.lastName}, ${runner.firstName}"
+	}
 }
