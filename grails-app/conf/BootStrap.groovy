@@ -22,7 +22,7 @@ class BootStrap {
 				
 				// admin
 				def admin = new User(
-							login:"zack", 
+							login:"admin", 
 							password:"nsecure",
 							role:"admin"
 							)
@@ -55,7 +55,7 @@ class BootStrap {
 					[firstName:"Stephen", lastName:"Dose", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"steee@whereever.com"],
 					[firstName:"Simon", lastName:"Dfoe", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"sedan@whereever.com"],
 					[firstName:"Walter", lastName:"Dhoe", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"pk@whereever.com"],
-					[firstName:"Rod", lastName:"Doje", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"therod@whereever.com"],
+					[firstName:"Rod", lastName:"in", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"therod@whereever.com"],
 					[firstName:"Jo", lastName:"Doge", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jo90@whereever.com"],
 					[firstName:"Jane", lastName:"Dobqe", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jane@whereever.com"],
 					[firstName:"Claire", lastName:"Dogee", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"c6@whereever.com"],
@@ -94,7 +94,7 @@ class BootStrap {
 						
 						// create user account
 						def usr = new User(
-							login: runner.firstName + "-" + runner.lastName, 
+							login: runner.firstName + "-" + runner.lastName,
 							password:"password",
 							role:"user"
 							)

@@ -285,6 +285,10 @@ a.header-main:visited {
 	font-style: italic;
 }
 
+#loginHeader { float: right; color: #fff; }
+#loginHeader a { color: #fff; }
+
+
 #footer { 
 	display: block;
 	width: 100%;
