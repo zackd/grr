@@ -3,6 +3,7 @@ import org.example.Book
 import org.example.Race
 import org.example.Runner
 import org.example.Registration
+import org.example.User
 
 import grails.util.GrailsUtil
 
@@ -17,8 +18,36 @@ class BootStrap {
 					new Book(author: "James Patterson", title: "Along Came a Spider").save(failOnError: true)
 				}
 				
-				// racetrack data
-				def registrant
+				// racetrack data ----------------
+				
+				// admin
+				def admin = new User(
+							login:"zack", 
+							password:"nsecure",
+							role:"admin"
+							)
+				admin.save()
+				if (admin.hasErrors()) {
+					println admin.errors
+				}
+				
+				// race
+				def event = new Race(
+							name:"belgian marathon",
+							startDate:(new Date() + 90), 
+							city:"Brugges", 
+							state:"NC", 
+							distance:23.0,
+							cost:20.0, 
+							maxRunners:3150
+							)
+				event.save() 
+				if (event.hasErrors()) {
+					println event.errors
+				}
+				
+				
+				// runners
 				def runners = [
 					[firstName:"Phil", lastName:"Dote", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"meg@whereever.com"],
 					[firstName:"Ann", lastName:"Dode", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"anode@whereever.com"],
@@ -50,32 +79,30 @@ class BootStrap {
 					runner.save()
 					if (runner.hasErrors()) {
 						println runner.errors
-					}
-					registrant = runner
-				}
-				
-				def event = new Race(
-							name:"belgian marathon",
-							startDate:(new Date() + 90), 
-							city:"Brugges", 
-							state:"NC", 
-							distance:23.0,
-							cost:20.0, 
-							maxRunners:3150
+					} else {
+						
+						// register for the race
+						def reg = new Registration(
+							paid:false,
+							runner: runner, 
+							race:event
 							)
-				event.save() 
-				if (event.hasErrors()) {
-					println event.errors
-				}
-				
-				def reg = new Registration(
-					paid:false,
-					runner: registrant, 
-					race:event
-					)
-				reg.save() 
-				if (reg.hasErrors()) {
-					println reg.errors
+						reg.save() 
+						if (reg.hasErrors()) {
+							println reg.errors
+						}
+						
+						// create user account
+						def usr = new User(
+							login: runner.firstName + "-" + runner.lastName, 
+							password:"password",
+							role:"user"
+							)
+						usr.save()
+						if (usr.hasErrors()) {
+						    println usr.errors
+						}
+					}
 				}
 				
 				break
