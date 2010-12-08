@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title><g:layoutTitle default="Grails" /></title>
+	<title><g:layoutTitle default="grr" /></title>
 	
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -26,9 +26,11 @@
 	<div id="spinner" class="spinner" style="display:none;">
 	<img src="${resource(dir:'images',file:'spinner.gif')}" alt="Spinner" />
 	</div>
-	<div id="grailsLogo" class="logo">
-		<a href="http://grails.org"><img src="${resource(dir:'images',file:'grails_logo.png')}" alt="Grails" border="0" /></a>
-	</div>
+
+	<g:render template="/layouts/header" />
+	
 	<g:layoutBody />
+	
+	<g:render template="/layouts/footer" />
 </body>
 </html>
