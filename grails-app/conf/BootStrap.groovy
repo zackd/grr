@@ -20,9 +20,20 @@ class BootStrap {
 				// racetrack data
 				def registrant
 				def runners = [
-					[firstName:"Jane", lastName:"Doe", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jane@whereever.com"],
+					[firstName:"Phil", lastName:"Dote", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"meg@whereever.com"],
+					[firstName:"Ann", lastName:"Dode", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"anode@whereever.com"],
+					[firstName:"Paul", lastName:"Dofe", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"pd@whereever.com"],
+					[firstName:"Stephen", lastName:"Dose", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"steee@whereever.com"],
+					[firstName:"Simon", lastName:"Dfoe", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"sedan@whereever.com"],
+					[firstName:"Walter", lastName:"Dhoe", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"pk@whereever.com"],
+					[firstName:"Rod", lastName:"Doje", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"therod@whereever.com"],
+					[firstName:"Jo", lastName:"Doge", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jo90@whereever.com"],
+					[firstName:"Jane", lastName:"Dobqe", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jane@whereever.com"],
+					[firstName:"Claire", lastName:"Dogee", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"c6@whereever.com"],
+					[firstName:"Emily", lastName:"Dokye", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"en6n@whereever.com"],
+					[firstName:"Jane", lastName:"Doae", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jane@whereever.com"],
 					[firstName:"Matt", lastName:"Hendriksen", age: 8, gender:"M", address:"1 West St", city:"Goose", state:"NC", zipcode:"35475", email:"matt@whereever.com"],
-					[firstName:"John", lastName:"Doe", age: 40, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"john@whereever.com"]
+					[firstName:"John", lastName:"Dlioe", age: 40, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"john@whereever.com"]
 				]
 				runners.each { runner -> 
 					runner = new Runner(
