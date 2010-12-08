@@ -1,11 +1,20 @@
 package org.example
 
 import grails.test.*
+import grails.utils.*
+import org.codehaus.groovy.grails.plugins.codecs.*
 
 class UserControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
-        super.setUp()
-    }
+		super.setUp()
+		// attach methods to String
+		String.metaClass.encodeAsBase64 = {-> 
+			Base64Codec.encode(delegate)
+		}
+		String.metaClass.encodeAsSHA = {->
+			SHACodec.encode(delegate)
+		}
+	}
 
     protected void tearDown() {
         super.tearDown()
@@ -34,7 +43,10 @@ class UserControllerTests extends ControllerUnitTestCase {
 	void testAuthenticate(){
 		println "testAuthenticate"
 		
-		def jdoe = new User(login:"jdoe", password:"password") 
+		def jdoe = new User(
+			login:"jdoe", 
+			password: "password".encodeAsSHA()
+			) 
 		mockDomain(User, [jdoe])
 		
 		println "test login success"
@@ -56,7 +68,7 @@ class UserControllerTests extends ControllerUnitTestCase {
 		controller.authenticate() 
 		assertTrue controller.flash.message.startsWith("Sorry,")
 		
-		// test blanks	
+		// test blanks
 		println "blank password"
 		controller.params.login = "jdoe"
 		controller.params.password = ""

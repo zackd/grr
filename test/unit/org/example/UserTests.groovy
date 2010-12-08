@@ -1,6 +1,8 @@
 package org.example
 
 import grails.test.*
+import grails.utils.*
+import org.codehaus.groovy.grails.plugins.codecs.*
 
 class UserTests extends GrailsUnitTestCase {
     protected void setUp() {

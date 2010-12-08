@@ -13,7 +13,9 @@ class UserController {
 		redirect(action:"login")
 	} 
 	def authenticate = {
-		def user = User.findByLoginAndPassword(params.login, params.password)
+		def user = User.findByLoginAndPassword(
+			params.login, params.password.encodeAsSHA())
+			
 		if (user){
 			session.user = user 
 			flash.message = "Hello ${user.login}!"
