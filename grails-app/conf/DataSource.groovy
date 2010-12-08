@@ -12,27 +12,37 @@ hibernate {
 // environment specific settings
 environments {
 	development {
-		dataSource {
+		/*dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			url = "jdbc:hsqldb:mem:devDB"
 		}
-		/*
+		*/
 		dataSource {
 			//pooled = true
-		    dbCreate = "update"
+		    dbCreate = "create-drop"
 		    url = "jdbc:mysql://localhost/grr?useUnicode=true&characterEncoding=utf-8"
 		    driverClassName = "com.mysql.jdbc.Driver"
 		    //dialect = org.hibernate.dialect.MySQL5InnoDBDialect
 			//logSql = true
-		    username = "root"
+		    username = "grails"
 		    password = "nsecure"
-		}*/
+		}
 		
 	}
 	test {
-		dataSource {
+		/*dataSource {
 			dbCreate = "update"
 			url = "jdbc:hsqldb:mem:testDb"
+		}*/
+		dataSource {
+			//pooled = true
+		    dbCreate = "create-drop"
+		    url = "jdbc:mysql://localhost/grr?useUnicode=true&characterEncoding=utf-8"
+		    driverClassName = "com.mysql.jdbc.Driver"
+		    //dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			//logSql = true
+		    username = "grails"
+		    password = "nsecure"
 		}
 	}
 	production {

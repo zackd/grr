@@ -16,22 +16,31 @@ class BootStrap {
 					new Book(author: "Stephen King", title: "The Shining").save(failOnError: true)
 					new Book(author: "James Patterson", title: "Along Came a Spider").save(failOnError: true)
 				}
-		
+				
 				// racetrack data
-				def jane = new Runner(
-							firstName:"Jane",
-							lastName:"Doe", 
-							dateOfBirth:(new Date() - 365*30), 
-							gender:"F", 
-							address:"123 Main St", 
-							city:"Goose", 
-							state:"NC", 
-							zipcode:"12345", 
-							email:"jane@whereever.com"
-							)
-				jane.save()
-				if (jane.hasErrors()) {
-					println jane.errors
+				def registrant
+				def runners = [
+					[firstName:"Jane", lastName:"Doe", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"jane@whereever.com"],
+					[firstName:"Matt", lastName:"Hendriksen", age: 8, gender:"M", address:"1 West St", city:"Goose", state:"NC", zipcode:"35475", email:"matt@whereever.com"],
+					[firstName:"John", lastName:"Doe", age: 40, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"john@whereever.com"]
+				]
+				runners.each{ runner -> 
+					runner = new Runner(
+								firstName: runner.firstName,
+								lastName: runner.lastName, 
+								dateOfBirth:(new Date() - 365*runner.age), 
+								gender: runner.gender, 
+								address: runner.address, 
+								city: runner.city, 
+								state: runner.state, 
+								zipcode: runner.zipcode, 
+								email: runner.email
+								)
+					runner.save()
+					if (runner.hasErrors()) {
+						println runner.errors
+					}
+					registrant = runner
 				}
 				
 				def event = new Race(
@@ -50,7 +59,7 @@ class BootStrap {
 				
 				def reg = new Registration(
 					paid:false,
-					runner:jane, 
+					runner: registrant, 
 					race:event
 					)
 				reg.save() 
