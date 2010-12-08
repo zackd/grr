@@ -12,11 +12,11 @@ class UserTests extends GrailsUnitTestCase {
     }
 
     void testSimpleConstraints() {
-		println "test login constraints"
+		println "testSimpleConstraints"
 		
 		mockForConstraintsTests(User)
 		
-		println "test login: bad role"
+		println "test role constraint"
 		def user = new User(
 			login:"someone", 
 			password:"blah", 
@@ -27,7 +27,7 @@ class UserTests extends GrailsUnitTestCase {
 		assertTrue "There should be errors", user.hasErrors()
 		assertEquals "inList", user.errors["role"]
 		
-		println "test login: blank login"
+		println "test login blank"
 		user = new User(
 			login:"", 
 			password:"word", 
@@ -38,7 +38,7 @@ class UserTests extends GrailsUnitTestCase {
 		assertTrue "There should be errors", user.hasErrors()
 		assertEquals "blank", user.errors["login"]
 		
-		println "test login: blank password"
+		println "test password blank"
 		user = new User(
 			login:"someone", 
 			password:"", 
@@ -48,29 +48,30 @@ class UserTests extends GrailsUnitTestCase {
 		assertFalse "Validation should not succeed", user.validate()
 		assertTrue "There should be errors", user.hasErrors()
 		assertEquals "blank", user.errors["password"]
-		/*
-		println "test login: bad login"
-		user = new User(
-			login:"bad", 
-			password:"password", 
-			role:"user"
-		)
-			
-		assertFalse "Validation should not succeed", user.validate()
-		assertTrue "There should be errors", user.hasErrors()
-		assertEquals "blank", user.errors["login"]
 		
-		println "test login: bad password"
-		user = new User(
-			login:"someone", 
-			password:"bad", 
+	// mock domain
+		def jdoe = new User(login:"jdoe") 
+		def admin = new User(login:"admin")
+		
+		mockDomain(User, [jdoe, admin])
+		
+		
+		println "test unique constraint"
+		def badUser = new User(login:"jdoe")
+		badUser.save()
+		assertEquals 2, User.count()
+		assertEquals "unique", badUser.errors["login"]
+		
+		println "test add user"
+		def goodUser = new User(
+			login:"good",
+			password:"password",
 			role:"user"
-		)
-			
-		assertFalse "Validation should not succeed", user.validate()
-		assertTrue "There should be errors", user.hasErrors()
-		assertEquals "blank", user.errors["password"]
-		*/
+			)
+		goodUser.save()
+		assertEquals 3, User.count()
+		assertNotNull User.findByLoginAndPassword("good", "password")
+		
 	}
 	 
 }
