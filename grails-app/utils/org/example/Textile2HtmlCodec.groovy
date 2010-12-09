@@ -1,7 +1,7 @@
 package org.example
 
 import org.eclipse.mylyn.wikitext.core.*
-//import org.eclipse.mylyn.wikitext.textile.*
+import org.eclipse.mylyn.wikitext.textile.*
 
 class Textile2HtmlCodec {
 	
