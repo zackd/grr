@@ -1,10 +1,10 @@
 package org.example
-import org.eclipse.mylyn.wikitext.textile.core
+/*import org.eclipse.mylyn.wikitext.textile.core
 import org.eclipse.mylyn.wikitext.textile.core.*
-/*
+*/
 import org.eclipse.mylyn.wikitext.core.*
 import org.eclipse.mylyn.wikitext.textile.*
-*/
+
 import org.eclipse.mylyn.wikitext.core.parser.MarkupParser
 import org.eclipse.mylyn.wikitext.textile.core.TextileLanguage
 
