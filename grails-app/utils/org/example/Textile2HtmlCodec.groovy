@@ -5,10 +5,14 @@ import org.eclipse.mylyn.wikitext.textile.core.TextileLanguage
 
 class Textile2HtmlCodec {
 	static encode = {target->
+		/*
 		MarkupParser markupParser = new MarkupParser();
 		markupParser.setMarkupLanaguage(new TextileLanguage());
-		String htmlContent = markupParser.parseToHtml(target);
-		return htmlContent
+		return markupParser.parseToHtml(target);
+		*/
+		
+		MarkupParser parser = new MarkupParser(new TextileLanguage());
+		parser.parseToHtml(String.valueOf(target));
 	}
 	
 	static decode = {target->
