@@ -9,8 +9,7 @@ class FooterTagLib {
 		out << thisYear() + " " + body()
 	}
 	
-	def tex = {
-		String text = "h2. textile markup"
-		out << text.encodeAsTextile2Html()
+	def textile = {attrs, body->
+		out << attrs.input.encodeAsTextile2Html() + " " + body()
 	}
 }
