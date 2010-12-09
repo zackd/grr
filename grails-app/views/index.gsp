@@ -96,7 +96,7 @@
 	            <ul>
 	              <g:each var="c" in="${grailsApplication.controllerClasses}">
 	                    <li class="controller">
-							<g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
+							<g:link controller="${c.logicalPropertyName}">${c.fullName.encodeTextile2Html()}</g:link>
 							<ul>
 								<li><g:link controller="${c.logicalPropertyName}" action="create">create</g:link></li>
 							</ul>
