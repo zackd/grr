@@ -30,7 +30,7 @@ class BootStrap {
 				
 				// admin
 				def adminUser = new User(
-							username:"admin", 
+							username:"grails", 
 							password: springSecurityService.encodePassword('nsecure'),
 							enabled:true
 							)
@@ -64,7 +64,7 @@ class BootStrap {
 				
 				// runners
 				def runners = [
-					[firstName:"Phil", lastName:"Dote", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"meg@whereever.com"],
+					[firstName:"No", lastName:"RM", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"norm@whereever.com"],
 					[firstName:"Ann", lastName:"Dode", age: 30, gender:"F", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"anode@whereever.com"],
 					[firstName:"Paul", lastName:"Dofe", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"pd@whereever.com"],
 					[firstName:"Stephen", lastName:"Dose", age: 30, gender:"M", address:"123 Main St", city:"Goose", state:"NC", zipcode:"12345", email:"steee@whereever.com"],
@@ -108,8 +108,9 @@ class BootStrap {
 						}
 						
 						// create user account
+						String username = runner.firstName + "" + runner.lastName
 						def usr = new User(
-							username: runner.firstName + "-" + runner.lastName,
+							username: username.toLowerCase(),
 							password: springSecurityService.encodePassword('password'),
 							enabled:true
 							)
