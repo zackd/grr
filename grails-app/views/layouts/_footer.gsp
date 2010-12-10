@@ -4,5 +4,5 @@
 	<g:textile 
 		input="h2{color:green}. This is a title"></g:textile>
 	
-	
+	<g:textileBlock />
 </div>
