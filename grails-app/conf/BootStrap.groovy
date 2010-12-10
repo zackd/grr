@@ -3,12 +3,16 @@ import org.example.Book
 import org.example.Race
 import org.example.Runner
 import org.example.Registration
+import org.example.Role
 import org.example.User
+import org.example.UserRole
 
 import grails.util.GrailsUtil
 
 class BootStrap {
-
+	
+	def springSecurityService
+	
 	def init = { servletContext ->
 		switch(GrailsUtil.environment){
 			case "development":
@@ -20,17 +24,29 @@ class BootStrap {
 				
 				// racetrack data ----------------
 				
+				//roles
+				def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+				def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+				
 				// admin
-				def admin = new User(
-							login:"admin", 
-							password:"nsecure",
-							role:"admin"
+				def adminUser = new User(
+							username:"admin", 
+							password: springSecurityService.encodePassword('nsecure'),
+							enabled:true
 							)
-				admin.save()
-				if (admin.hasErrors()) {
-					println admin.errors
+				adminUser.save(flush: true)
+				
+				if (adminUser.hasErrors()) {
+					println adminUser.errors
 				}
 				
+				UserRole.create adminUser, adminRole, true
+				
+				assert User.count() == 1
+				assert Role.count() == 2
+				assert UserRole.count() == 1
+				
+				/*
 				// race
 				def event = new Race(
 							name:"belgian marathon",
@@ -94,17 +110,17 @@ class BootStrap {
 						
 						// create user account
 						def usr = new User(
-							login: runner.firstName + "-" + runner.lastName,
+							username: runner.firstName + "-" + runner.lastName,
 							password:"password",
 							role:"user"
 							)
 						usr.save()
 						if (usr.hasErrors()) {
-						    println usr.errors
+							println usr.errors
 						}
 					}
 				}
-				
+				*/
 				break
 				
 			case "production": break
