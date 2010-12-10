@@ -16,12 +16,13 @@ class FooterTagLib {
 	def line = "h3. Coding This\n <code>is some code, \"isn't it\"</code>.\n Watch those quote marks! Now for some preformatted text:"
 	
 	// * can't handle multi-line groovy strings
-	def mutli = """\
+	def multi = """\
 		h3. Coding This <code>is some code, "isn't it"</code>. Watch those quote marks! Now for some preformatted text:
 	"""
 	
 	def textileBlock = {
 		out << line.encodeAsTextile2Html()
+		out << multi.encodeAsTextile2Html()
 	}
 	
 }
