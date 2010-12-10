@@ -1,3 +1,5 @@
+import grails.plugins.springsecurity.SecurityConfigType
+
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
 
@@ -89,3 +91,18 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.example.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.example.UserRole'
 grails.plugins.springsecurity.authority.className = 'org.example.Role'
+
+// controller mapping
+grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
+
+grails.plugins.springsecurity.interceptUrlMap = [	// most general rules should comes last, i.e. first match applied.
+	'/': 								['ROLE_USER','ROLE_ADMIN'],
+	'/book/**': 						['ROLE_USER','ROLE_ADMIN'],
+	'/race/**': 						['ROLE_USER','ROLE_ADMIN'],
+	'/runner/**': 						['ROLE_USER','ROLE_ADMIN'],
+	'/registration/**': 				['ROLE_ADMIN'],
+	'/user/**':							['ROLE_ADMIN'],
+	]
+
+
+
