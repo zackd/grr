@@ -61,7 +61,7 @@ class BootStrap {
 					
 					table{border:1px solid black}.
 					|_. this|_. is|_. a|_. header|
-					<{background:gray}. |\2. this is|{background:red;width:200px}. a|^<>{height:200px}. row|
+					<{background:gray}. |h2. this is|{background:red;width:200px}. a|^<>{height:200px}. row|
 					|this|<>{padding:10px}. is|^. another|(bob#bob). row|
 
 					An image:
@@ -99,7 +99,7 @@ class BootStrap {
 					* The time is not later
 					* The time is not yesterday
 					* We must act
-				"""
+				""".replaceAll(/\t/, "")
 				/* <code>
 				$text = str_replace("<p>%::%</p>","",$text);
 				$text = str_replace("%::%</p>","",$text);
