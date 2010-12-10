@@ -39,14 +39,13 @@ class BootStrap {
 				if (adminUser.hasErrors()) {
 					println adminUser.errors
 				}
-				
 				UserRole.create adminUser, adminRole, true
 				
 				assert User.count() == 1
 				assert Role.count() == 2
 				assert UserRole.count() == 1
 				
-				/*
+				
 				// race
 				def event = new Race(
 							name:"belgian marathon",
@@ -111,16 +110,16 @@ class BootStrap {
 						// create user account
 						def usr = new User(
 							username: runner.firstName + "-" + runner.lastName,
-							password:"password",
-							role:"user"
+							password: springSecurityService.encodePassword('password'),
+							enabled:true
 							)
 						usr.save()
 						if (usr.hasErrors()) {
 							println usr.errors
 						}
+						UserRole.create usr, userRole, true
 					}
 				}
-				*/
 				break
 				
 			case "production": break
