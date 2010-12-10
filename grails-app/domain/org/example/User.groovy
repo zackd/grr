@@ -1,27 +1,24 @@
 package org.example
 
 class User {
-	String login 
-	String password 
-	String role = "user"
-	
+
+	String username
+	String password
+	boolean enabled
+	boolean accountExpired
+	boolean accountLocked
+	boolean passwordExpired
+
 	static constraints = {
-		login(blank:false, nullable:false, unique:true)
-		password(blank:false, password:true)
-		role(inList:["admin", "user"])
+		username blank: false, unique: true
+		password blank: false
 	}
-	
-	static transients = ['admin']
-	
-	boolean isAdmin(){
-		return role == "admin"
+
+	static mapping = {
+		password column: '`password`'
 	}
-	
-	def beforeInsert = {
-		password = password.encodeAsSHA()
-	}
-	
-	String toString(){
-		login
+
+	Set<Role> getAuthorities() {
+		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
 }

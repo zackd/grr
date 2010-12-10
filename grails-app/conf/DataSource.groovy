@@ -12,11 +12,10 @@ hibernate {
 // environment specific settings
 environments {
 	development {
-		dataSource {
+		/*dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
 			url = "jdbc:hsqldb:mem:devDB"
-		}
-		/*
+		}*/
 		dataSource {
 			//pooled = true
 		    dbCreate = "create-drop"
@@ -27,14 +26,13 @@ environments {
 		    username = "grails"
 		    password = "nsecure"
 		}
-		*/
 	}
 	test {
-		dataSource {
+		/*dataSource {
 	    	dbCreate = "create-drop"
 			url = "jdbc:hsqldb:mem:testDb"
-		}
-		/*dataSource {
+		}*/
+		dataSource {
 			//pooled = true
 		    dbCreate = "create-drop"
 		    url = "jdbc:mysql://localhost/grr?useUnicode=true&characterEncoding=utf-8"
@@ -43,7 +41,7 @@ environments {
 			//logSql = true
 		    username = "grails"
 		    password = "nsecure"
-		}*/
+		}
 	}
 	production {
 		dataSource {

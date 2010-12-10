@@ -2,7 +2,7 @@ h2. grails101
 
 * grails 1.2.3
 
-user: admin
+user: grails
 pass: nsecure
 
 
